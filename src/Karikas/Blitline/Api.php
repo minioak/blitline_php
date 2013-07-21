@@ -1,5 +1,6 @@
 <?php
 namespace Karikas\Blitline;
+
 /**
  * Blitline PHP Wrapper - using Blitline's cloud-based image processing API the easy way!
  * Easy enough if you use PHP of course, with this library.
@@ -77,9 +78,7 @@ define('BLITLINE_COMPOSITE_SRCOVER', 'SrcOverCompositeOp'); // The source is com
 define('BLITLINE_COMPOSITE_SUBTRACT', 'SubtractCompositeOp'); // The result of composite image - image, with underflow wrapping around (mod 256). The add and subtract operators can be used to perform reversable transformations.
 define('BLITLINE_COMPOSITE_XOR', 'XorCompositeOp'); // The result is the image data from both composite image and image that is outside the overlap region. The overlap region will be blank.
 
-// Include our buddy classes
-use Karikas\Blitline\Function;
-use Karikas\Blitline\Response;
+
 
 class Api {
 	// Essentials
