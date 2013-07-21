@@ -1,4 +1,6 @@
 <?php
+namespace Karikas\Blitline;
+
 /**
  * "Function" object instance for Blitline PHP Wrapper
  * A stand-in class to create 'function' requests with Blitline's API.
@@ -28,7 +30,7 @@
  *
  */
 
-class Blitline_function {
+class Function {
 	public $name;
 	public $params;
 	public $save;
