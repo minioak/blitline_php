@@ -1,0 +1,24 @@
+{
+    "name": "karikas/blitline",
+    "type": "library",
+    "description": "Blitline API Wrapper",
+    "keywords": ["blitline", "image processing"],
+    "homepage": "",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Michael Karikas",
+            "email": "mike@karikas.com"
+        },
+        {
+	        "name": "John Mitchell",
+	        "email": "jfm@minioak.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "autoload": {
+        "psr-0": { "Karikas\\Blitline": "src/" }
+    }
+}

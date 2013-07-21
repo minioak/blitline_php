@@ -1,4 +1,6 @@
 <?php
+namespace Karikas\Blitline;
+
 /**
  * "Response" object instance for Blitline PHP Wrapper
  * It's nice to wrap their response up in an object, I think.
@@ -8,7 +10,7 @@
  *
  */
 
-class Blitline_response {
+class Response {
 	public $images;
 	public $job_id;
 	public $errors;

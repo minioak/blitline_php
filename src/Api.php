@@ -1,4 +1,5 @@
 <?php
+namespace Karikas\Blitline;
 /**
  * Blitline PHP Wrapper - using Blitline's cloud-based image processing API the easy way!
  * Easy enough if you use PHP of course, with this library.
@@ -77,10 +78,10 @@ define('BLITLINE_COMPOSITE_SUBTRACT', 'SubtractCompositeOp'); // The result of c
 define('BLITLINE_COMPOSITE_XOR', 'XorCompositeOp'); // The result is the image data from both composite image and image that is outside the overlap region. The overlap region will be blank.
 
 // Include our buddy classes
-require_once('blitline_function.php');
-require_once('blitline_response.php');
+use Karikas\Blitline\Function;
+use Karikas\Blitline\Response;
 
-class Blitline_php {
+class Api {
 	// Essentials
 	protected $api_source; // API endpoint for running a job
 	protected $app_id; // APP ID from your Blitline account
@@ -491,7 +492,7 @@ class Blitline_php {
 	 * @param array $params
 	 */
 	protected function add_to_request($name, $params) {
-		$func = new Blitline_function(
+		$func = new Function(
 			$name,
 			$params,
 			$this->build_save_command()
@@ -668,7 +669,7 @@ class Blitline_php {
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $http_query);
-		$this->result = new Blitline_response( curl_exec($ch) );
+		$this->result = new Response( curl_exec($ch) );
 		if ($this->result->success()) {
 			$this->log("Success!");
 		} else {
