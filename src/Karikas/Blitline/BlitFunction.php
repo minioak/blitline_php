@@ -30,7 +30,7 @@ namespace Karikas\Blitline;
  *
  */
 
-class Function {
+class BlitFunction {
 	public $name;
 	public $params;
 	public $save;
