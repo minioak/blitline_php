@@ -491,7 +491,7 @@ class Api {
 	 * @param array $params
 	 */
 	protected function add_to_request($name, $params) {
-		$func = new Function(
+		$func = new BlitFunction(
 			$name,
 			$params,
 			$this->build_save_command()
