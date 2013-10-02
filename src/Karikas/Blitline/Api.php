@@ -813,5 +813,15 @@ class Api {
 
 		$this->add_to_request('unsharp_mask', $params);
 	}
+
+    function do_imagga_smart_crop($width, $height, $scaling = false) {
+        $this->log("Imaga Smart Crop: {$width} width, {$height} height, {$scaling} scaling");
+        $params = array(
+            'resolution' => "{$width}x{$height}",
+            'no_scaling' => $scaling ? 0 : 1
+        );
+
+        $this->add_to_request('imagga_smart_crop', $params);
+    }
 }
 /* End of file blitline_php.php */
