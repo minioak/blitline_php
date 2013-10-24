@@ -103,6 +103,7 @@ class Api {
 	public $requests; // Array of operations to perform
 	public $current_request; // Current request we're working on
 	public $result; // We store our results object here
+	public $pre_process;
 
 	/**
 	 * Set all default settings and set our APP ID (required)
@@ -118,6 +119,7 @@ class Api {
 		$this->current_request = FALSE;
 		$this->requests = array();
 		$this->result = array();
+		$this->pre_process = array();
 
 		// Default settings
 		$this->set_image_id();
@@ -482,6 +484,19 @@ class Api {
 		$this->log("Setting up new image processing request");
 		$this->current_request = FALSE;
 	}
+	
+	function move($bucket, $key) {
+		$move = array();
+		
+		$move = array(
+			's3_destination' => array(
+				'bucket' => $bucket,
+				'key' => $key
+			)
+		);
+		
+		$this->pre_process['move_original'] = $move;
+	}
 
 	/**
 	 * Add a new function to our current cascading list of commands (single request of 1+ operations)
@@ -656,6 +671,7 @@ class Api {
 		$request = array(
 			'application_id' => $this->get_app_id(),
 			'src' => $this->get_image_src(),
+			'pre_process' => $this->pre_process,
 			'functions' => $this->requests
 		);
 
