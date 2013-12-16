@@ -749,6 +749,18 @@ class Api {
 		$this->add_to_request('resize_to_fill', $params);
 	}
 
+    function do_pad_resize_to_fit($width=40, $height=40, $color='#ffffff', $gravity=BLITLINE_GRAVITY_CENTER) {
+        $this->log("Pad-resize-to-fill: {$width} x {$height}, {$color}, {$gravity}");
+        $params = array(
+            'width' => $width,
+            'height' => $height,
+            'color' => $color,
+            'gravity' => $gravity
+        );
+
+        $this->add_to_request('pad_resize_to_fill', $params);
+    }
+
 	/**
 	 * Resize the image to fit within the specified dimensions while retaining the original aspect ratio.
 	 * The image may be shorter or narrower than specified in the smaller dimension but will not be larger than the
