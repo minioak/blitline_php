@@ -758,7 +758,7 @@ class Api {
             'gravity' => $gravity
         );
 
-        $this->add_to_request('pad_resize_to_fill', $params);
+        $this->add_to_request('pad_resize_to_fit', $params);
     }
 
 	/**
