@@ -645,7 +645,7 @@ class Api {
 		$this->log("Loading source image url: {$src}");
 		$this->bl_image_src = $src;
 
-		if ($src != filter_var($src, FILTER_VALIDATE_URL)) {
+		if ($src != filter_var($src, FILTER_VALIDATE_URL) || (is_array($src) && $src['url'] != filter_var($src, FILTER_VALIDATE_URL))) {
 			$this->error("...but I don't think it'll work, doesn't look like a URL to me!");
 			return FALSE;
 		} else {
