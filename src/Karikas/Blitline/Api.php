@@ -660,7 +660,7 @@ class Api {
 	 *
 	 * @return Blitline_response
 	 */
-	function process() {
+	function process($requests = array(), $process = true) {
 		$this->log("Sending request to process images...");
 
 		// If we haven't saved our current request, do so now
@@ -674,9 +674,17 @@ class Api {
 			'pre_process' => $this->pre_process,
 			'functions' => $this->requests
 		);
+		
+		$requests[] = $request;
+		
+		if (!$process) {
+			$this->current_request = FALSE;
+			$this->requests = array();
+			return $requests;
+		}
 
 		// Make CURL request of json => encoded json string
-		$http_query = http_build_query(array('json' => json_encode($request) ));
+		$http_query = http_build_query(array('json' => json_encode($requests) ));
 		//$this->log("Sending request: ".json_encode($request) );
 		$this->log("Sending request to Blitline...");
 
